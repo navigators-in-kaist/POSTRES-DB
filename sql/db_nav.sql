@@ -1,6 +1,7 @@
 -- Database dumping script
 -- Author : Kwonwoo Lyu
 -- Modified At : June 9, 2024
+-- DB name : test_nav
 
 CREATE TABLE IF NOT EXISTS buildings (
     building_id varchar(255) PRIMARY KEY,
@@ -107,3 +108,14 @@ ALTER TABLE search_histories
 ALTER TABLE contributions
     ADD CONSTRAINT fk__contributions__users FOREIGN KEY (fk__contributions__users) REFERENCES "users"(user_uuid);
 
+
+-- Default data
+
+INSERT INTO location_categories(category_id, category_name, description) VALUES
+    ('2f5d8135-cefc-4d68-bde5-2ae78a9ba65c', 'Restaurants', 'fixed category'),
+    ('bffe8471-31b0-4695-9907-7bf77f0069f8', 'Convenience Stores', 'fixed category'),
+    ('a8a67e35-b956-4f4b-a00d-215ed958834a', 'Cafes', 'fixed category'),
+    ('b06781df-1703-4fd1-81c7-3ae8ffe97016', 'Gyms', 'fixed category'),
+    ('8916ab2a-224d-41d9-89be-84b1af520fef', 'Dormitories', 'fixed category'),
+    ('ff12c671-38e2-4681-bd8d-d3f6226963c3', 'Lecture Room', 'fixed category'),
+    ('0969b176-d2f7-4e18-93d1-1f977222c965', 'Coworking Space', 'fixed category');
