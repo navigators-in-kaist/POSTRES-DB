@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS contributions (
 CREATE TABLE IF NOT EXISTS users (
     user_uuid varchar(255) PRIMARY KEY,
     user_id varchar(255) NOT NULL UNIQUE,
+    user_name varchar(255) NOT NULL,
     user_password text NOT NULL,
     is_proven_user boolean NOT NULL,
     user_email varchar(255) NOT NULL,
@@ -140,3 +141,9 @@ INSERT INTO location_categories(category_id, category_name, description) VALUES
     ('8916ab2a-224d-41d9-89be-84b1af520fef', 'Dormitories', 'fixed category'),
     ('ff12c671-38e2-4681-bd8d-d3f6226963c3', 'Lecture Room', 'fixed category'),
     ('0969b176-d2f7-4e18-93d1-1f977222c965', 'Coworking Space', 'fixed category');
+
+INSERT INTO users(user_uuid, user_id, user_name, user_password, is_proven_user, user_email, user_status) VALUES
+    ('1ccc2669-d428-472b-904a-2b5b27ba5829', 'testuser0000', 'test user', 'f40801e575e14bb373dbcc83dde8f12768958b05b1b677152badba106ed95753', false, 'rnjsdn1003@kaist.ac.kr', 'ACTIVE');
+
+INSERT INTO admins(admin_uuid, admin_id, admin_name, admin_password) VALUES
+    ('2e52c78c-be28-491f-9c84-3762e0f18a89', 'testadmin0000', 'test admin', 'f40801e575e14bb373dbcc83dde8f12768958b05b1b677152badba106ed95753');
