@@ -1,0 +1,2 @@
+- Database : Postgresql
+- ERD : https://www.erdcloud.com/d/zqeERkSfcSaKpz8rE
