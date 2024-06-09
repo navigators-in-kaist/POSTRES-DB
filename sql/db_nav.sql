@@ -51,6 +51,15 @@ CREATE TABLE IF NOT EXISTS contributions (
     contribution_status varchar(255) NOT NULL,
     created_at timestamptz NOT NULL,
     approved_at timestamptz NULL,
+    official_code varchar(255) NULL,
+    name varchar(255) NULL,
+    alias varchar(255) NULL,
+    max_floor int4 NULL,
+    longitude float8 NULL,
+    latitude float8 NULL,
+    floor int4 NULL,
+    description text NULL,
+    room_number varchar(255) NULL,
     fk__contributions__users varchar(255) NOT NULL
 );
 
