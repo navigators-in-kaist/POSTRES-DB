@@ -86,6 +86,18 @@ CREATE TABLE IF NOT EXISTS admins (
     admin_password text NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS user_saves (
+    mapping_id varchar(255) PRIMARY KEY,
+    fk__user_saves__users varchar(255) NOT NULL,
+    fk__user_saves__buildings varchar(255) NULL,
+    fk__user_saves__locations varchar(255) NULL
+);
+
+ALTER TABLE user_saves
+ADD CONSTRAINT fk__user_saves__users FOREIGN KEY (fk__user_saves__users) REFERENCES "users"(user_uuid),
+    ADD CONSTRAINT fk__user_saves__buildings FOREIGN KEY (fk__user_saves__buildings) REFERENCES "buildings"(building_id),
+    ADD CONSTRAINT fk__user_saves__locations FOREIGN KEY (fk__user_saves__locations) REFERENCES "locations"(location_id);
+
 ALTER TABLE email_schedules
     ADD CONSTRAINT fk__email_schedules__prove_trials FOREIGN KEY (fk__email_schedules__prove_trials) REFERENCES "prove_trials"(trial_id);
 
