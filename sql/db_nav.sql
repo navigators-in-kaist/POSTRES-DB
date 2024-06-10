@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS users (
     user_name varchar(255) NOT NULL,
     user_password text NOT NULL,
     is_proven_user boolean NOT NULL,
-    user_email varchar(255) NOT NULL,
+    user_email varchar(255) NULL UNIQUE,
     user_status varchar(255) NOT NULL
 );
 
