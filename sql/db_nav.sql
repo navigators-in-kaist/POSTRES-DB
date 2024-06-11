@@ -60,7 +60,9 @@ CREATE TABLE IF NOT EXISTS contributions (
     floor int4 NULL,
     description text NULL,
     room_number varchar(255) NULL,
-    fk__contributions__users varchar(255) NOT NULL
+    fk__contributions__users varchar(255) NOT NULL,
+    fk__contributions__buildings varchar(255) NULL,
+    fk__contributions__location_categories varchar(255) NULL
 );
 
 CREATE TABLE IF NOT EXISTS users (
@@ -129,7 +131,9 @@ ALTER TABLE search_histories
     ADD CONSTRAINT fk__search_histories__users FOREIGN KEY (fk__search_histories__users) REFERENCES "users"(user_uuid);
 
 ALTER TABLE contributions
-    ADD CONSTRAINT fk__contributions__users FOREIGN KEY (fk__contributions__users) REFERENCES "users"(user_uuid);
+    ADD CONSTRAINT fk__contributions__users FOREIGN KEY (fk__contributions__users) REFERENCES "users"(user_uuid),
+    ADD CONSTRAINT fk__contributions__buildings FOREIGN KEY (fk__contributions__buildings) REFERENCES "buildings"(building_id),
+    ADD CONSTRAINT fk__contributions__location_categories FOREIGN KEY (fk__contributions__location_categories) REFERENCES "location_categories"(category_id);
 
 
 -- Default data
