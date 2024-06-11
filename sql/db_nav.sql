@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS prove_trials (
     trial_id varchar(255) PRIMARY KEY,
     created_at timestamptz NOT NULL,
     verify_code varchar(255) NOT NULL,
-    proved_at timestamptz NOT NULL,
+    proved_at timestamptz NULL,
     fk__prove_trials__users varchar(255) NOT NULL
 );
 
@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS email_schedules (
     schedule_id varchar(255) PRIMARY KEY,
     content text NOT NULL,
     send_trial_count int4 NOT NULL,
+    email_addr varchar(255) NOT NULL,
     is_success boolean NOT NULL,
     fk__email_schedules__prove_trials varchar(255) NOT NULL
 );
